@@ -9,5 +9,7 @@ location / {
 	proxy_hide_header Etag;
 	proxy_cache_key "$server_name$request_uri $slice_range";
 	proxy_cache_valid 206 90d;
-	include lancache/cache-installs;
+	#include lancache/cache-installs;
+	proxy_cache blizzard_cache;
+	include lancache/proxy-cache;
 }
